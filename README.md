@@ -1,5 +1,5 @@
 # Stockify
-This app is for manage your library book as a CMS (Content Management System)
+This app is for manage your library book as a CMS (Content Management System).
 
 ## How to run the program?
 
