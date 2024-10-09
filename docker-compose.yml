@@ -1,0 +1,32 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: booklist_db
+    volumes:
+      - ./data/:/var/lib/mysql
+    networks:
+      - backend_api_network
+  backend_api:
+    container_name: backend_api
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: booklist_db
+      DB_USERNAME: root
+      DB_PASSWORD: 12345678
+    networks:
+      - backend_api_network
+
+networks:
+  backend_api_network:
+    name: backend_api_network
