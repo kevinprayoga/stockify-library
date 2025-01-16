@@ -20,6 +20,11 @@ docker compose up -d
 ```
 > - The Program has been started
 
+> - Run this URL
+```
+http://localhost:8080
+```
+
 ## How to login?
 
 1. Admin role
